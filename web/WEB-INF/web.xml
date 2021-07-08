@@ -3,4 +3,36 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          version="5.0">
+
+<!--    配置servlet程序的访问路径-->
+    <!--    servlet标签是给Tomcat配置servlet程序-->
+    <servlet>
+        <!--        给servlet程序起一个别名-->
+        <servlet-name>HelloServlet</servlet-name>
+        <!--        servlet-class配置的是servlet程序的全类名-->
+        <servlet-class>com.huaian.servlet.HelloServlet</servlet-class>
+    </servlet>
+    <!--    servlet-mapping标签是给servlet程序配置访问路径-->
+    <servlet-mapping>
+        <!--        servlet-name标签告诉服务器，我当前配置的访问路径是给哪个servlet程序使用的
+                    此处的servlet-name需要与servlet标签中的servlet-name标签值一致
+        -->
+        <servlet-name>HelloServlet</servlet-name>
+        <!--        url-pattern：servlet程序的访问路径
+                    /:在服务器解析的时候表示地址为http://ip地址:端口号/工程路径
+                    此处路径地址必须要以斜杠打头
+        -->
+        <url-pattern>/helloServlet</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet>
+        <servlet-name>ExtendHttpServlet</servlet-name>
+        <servlet-class>com.huaian.servlet.ExtendHttpServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ExtendHttpServlet</servlet-name>
+        <url-pattern>/extend</url-pattern>
+    </servlet-mapping>
 </web-app>
